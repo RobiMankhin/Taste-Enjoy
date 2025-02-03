@@ -1,11 +1,11 @@
 import { useDispatch } from "react-redux";
-
+import { FaStar } from "react-icons/fa";
 import { AddToCart } from "../ReduxToolkit/Slices/CartSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // eslint-disable-next-line react/prop-types
-const FoodCart = ({ img, name, desc, price, rating, category, id }) => {
+const FoodCart = ({ img, name, desc, price, rating, id }) => {
   const showAddToCartToast = () => {
     toast.success(`${name} added to cart! 🛒`, {
       position: "top-center",
@@ -43,10 +43,10 @@ const FoodCart = ({ img, name, desc, price, rating, category, id }) => {
           {desc.length > maxLength && "..."}
         </div>
         <div className="flex items-center justify-between">
-          <h1 className=" font-semibold w-4 h-4 items-center gap-1 flex">
-            <img alt="burger" src="/src/assets/star.png" />
+          <div className=" font-semibold  items-cente gap-1 flex">
+            <FaStar className="text-yellow-400 h-5" />
             {rating}
-          </h1>
+          </div>
           <button
             onClick={() => {
               dispatch(AddToCart({ id, name, price, rating, img }));
